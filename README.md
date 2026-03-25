@@ -1,4 +1,4 @@
-# ADT.github.io
+# aaradhyaadtmr.github.io
 
 Personal portfolio website for Aaradhya Dev Tamrakar, an Electronics & Instrumentation Engineering student at Kathmandu Engineering College (KEC), Institute of Engineering (IOE).
 
