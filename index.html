@@ -115,8 +115,9 @@
 
     /* Projects */
     #projects { background: var(--bg); }
-    .projects-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+    .projects-grid { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
     .project-card { background: var(--bg2); padding: 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; }
+    .project-card:only-child { grid-column: span 2; }
     .project-card::after { content: ''; position: absolute; top: 0; left: 0; right: 0; height: 1px; background: var(--accent); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .project-card:hover { background: var(--bg3); }
     .project-card:hover::after { transform: scaleX(1); }
@@ -130,8 +131,8 @@
 
     /* Apps */
     #apps { background: var(--bg2); }
-    .apps-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 1px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
-    .app-card { background: var(--bg3); padding: 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; }
+    .apps-grid { display: flex; flex-wrap: wrap; gap: 1px; border: 1px solid var(--line); border-radius: 4px; overflow: hidden; }
+    .app-card { background: var(--bg3); padding: 2.5rem; transition: background 0.3s; position: relative; overflow: hidden; display: flex; flex-direction: column; gap: 1rem; flex: 1 1 0%; min-width: 320px; }
     .app-card::before { content: ''; position: absolute; bottom: 0; left: 0; right: 0; height: 1px; background: var(--accent2); transform: scaleX(0); transform-origin: left; transition: transform 0.4s ease; }
     .app-card:hover { background: var(--bg); }
     .app-card:hover::before { transform: scaleX(1); }
@@ -357,7 +358,7 @@
         title: "Gesture-Controlled Self-Balancing Robot",
         desc:  "A two-wheeled inverted pendulum robot controlled via real-time hand gesture recognition. Combines PID firmware, Bluetooth communication, and MediaPipe-based ML inference on a Python host.",
         tags:  ["Arduino", "HC-05", "MPU-6050", "NEMA-17", "MediaPipe", "TFLite", "PID"],
-        link:  https://github.com/AaradhyaDT/Gesture-Controlled-Self-Balancing-Robot,   // e.g. "https://github.com/AaradhyaDT/sbr"
+        link:  "https://github.com/AaradhyaDT/Gesture-Controlled-Self-Balancing-Robot",   // e.g. "https://github.com/AaradhyaDT/sbr"
       },
       {
         title: "Edge AI Stability Detection System",
@@ -396,9 +397,15 @@
     experience: [
       {
         org:   "IEEE KEC Student Branch",
+        title: "Vice Chair",
+        desc:  "Spearheading strategic planning and high-level decision-making for the IEEE KEC Student Branch. Focused on scaling technical initiatives, mentoring executive members, and fostering industry partnerships to enhance the engineering ecosystem.",
+        year:  "2026 — Present",
+      },
+      {
+        org:   "IEEE KEC Student Branch",
         title: "Vice Secretary",
         desc:  "Leading organizational and administrative operations of the IEEE KEC Student Branch. Coordinating events, managing communications, and driving technical initiatives for the engineering community.",
-        year:  "2024 — Present",
+        year:  "2024 — 2026",
       },
       {
         org:   "EPC Handover Program 2025",
@@ -442,7 +449,7 @@
     aboutParagraphs: [
       "I'm a third-year <strong>Electronics &amp; Instrumentation Engineering</strong> student at Kathmandu Engineering College, IOE, Tribhuvan University — working at the frontier of embedded systems, robotics, and applied machine learning.",
       "My work bridges firmware and intelligence: from tuning PID loops on stepper-driven robots to deploying ML inference on edge hardware. I believe the most compelling engineering happens when clean code meets physical systems.",
-      "Beyond the bench, I serve as <strong>Vice Secretary of the IEEE KEC Student Branch</strong>, where I work to build a stronger technical community for engineers in Nepal.",
+      "Beyond the bench, I serve as <strong>Vice Chair of the IEEE KEC Student Branch</strong>, where I work to build a stronger technical community for engineers in Nepal.",
     ],
     aboutStats: [
       { num: "3", sup: "rd", label: "Year at KEC\nIOE, TU" },
@@ -463,7 +470,7 @@
     ],
 
     // ── Footer ───────────────────────────────────────────────
-    footerCopy: "© 2025 Aaradhya Dev Tamrakar · KEC, IOE, Tribhuvan University",
+    footerCopy: "© 2026 Aaradhya Dev Tamrakar · KEC, IOE, Tribhuvan University",
     footerSocials: [
       { label: "GitHub",    href: "https://github.com/AaradhyaDT" },
       { label: "LinkedIn",  href: "https://linkedin.com/in/aaradhya-dev-tamrakar" },
