@@ -24,7 +24,24 @@
       --serif:    'Cormorant Garamond', Georgia, serif;
       --mono:     'DM Mono', monospace;
       --sans:     'Instrument Sans', sans-serif;
+      --nav-scrolled-bg: rgba(11,12,14,0.85);
     }
+
+    html[data-theme="light"] {
+      --bg:       #f7f4ef;
+      --bg2:      #eeeae2;
+      --bg3:      #e5e0d6;
+      --line:     rgba(0,0,0,0.09);
+      --text:     #2a2520;
+      --muted:    #8a8078;
+      --accent:   #a07840;
+      --accent2:  #4a9080;
+      --white:    #1a1510;
+      --nav-scrolled-bg: rgba(247,244,239,0.88);
+    }
+
+    /* Smooth theme transition — exclude animations that should stay instant */
+    body, body * { transition: background-color 0.3s ease, border-color 0.3s ease, color 0.2s ease; }
 
     html { scroll-behavior: smooth; }
     body { background: var(--bg); color: var(--text); font-family: var(--sans); font-weight: 300; overflow-x: hidden; cursor: none; }
@@ -44,7 +61,14 @@
 
     /* Nav */
     nav { position: fixed; top: 0; left: 0; right: 0; z-index: 100; display: flex; align-items: center; justify-content: space-between; padding: 1.5rem 3rem; border-bottom: 1px solid transparent; transition: border-color 0.3s, background 0.3s, backdrop-filter 0.3s; }
-    nav.scrolled { border-color: var(--line); background: rgba(11,12,14,0.85); backdrop-filter: blur(12px); }
+    nav.scrolled { border-color: var(--line); background: var(--nav-scrolled-bg); backdrop-filter: blur(12px); }
+    .theme-toggle { width: 36px; height: 36px; background: transparent; border: 1px solid var(--line); border-radius: 2px; cursor: none; display: flex; align-items: center; justify-content: center; color: var(--muted); flex-shrink: 0; }
+    .theme-toggle:hover { border-color: var(--accent); color: var(--accent); }
+    .theme-toggle svg { width: 15px; height: 15px; pointer-events: none; }
+    .icon-sun { display: none; }
+    .icon-moon { display: block; }
+    html[data-theme="light"] .icon-sun { display: block; }
+    html[data-theme="light"] .icon-moon { display: none; }
     .nav-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--white); text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; }
@@ -214,6 +238,10 @@
     <a href="#hero" class="nav-logo" id="nav-logo">ADT<span>.</span></a>
     <ul class="nav-links" id="nav-links"></ul>
     <a href="#contact" class="nav-cta">Connect</a>
+    <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
+      <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
+      <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+    </button>
   </nav>
 
   <section id="hero">
@@ -329,7 +357,7 @@
         title: "Gesture-Controlled Self-Balancing Robot",
         desc:  "A two-wheeled inverted pendulum robot controlled via real-time hand gesture recognition. Combines PID firmware, Bluetooth communication, and MediaPipe-based ML inference on a Python host.",
         tags:  ["Arduino", "HC-05", "MPU-6050", "NEMA-17", "MediaPipe", "TFLite", "PID"],
-        link:  null,   // e.g. "https://github.com/AaradhyaDT/sbr"
+        link:  https://github.com/AaradhyaDT/Gesture-Controlled-Self-Balancing-Robot,   // e.g. "https://github.com/AaradhyaDT/sbr"
       },
       {
         title: "Edge AI Stability Detection System",
@@ -343,29 +371,25 @@
         tags:  ["VHDL", "Vivado", "FSM", "Datapath", "FPGA"],
         link:  null,
       },
+      {
+        title: "Alpha Android Super-App",
+        desc:  "Personal Android application (Kotlin/Jetpack Compose, Material3) featuring SBR gesture control, a multi-mode calculator, Budget Tracker with eSewa Gmail parsing and Google Drive backup, and a custom settings module with DataStore Preferences.",
+        tags:  ["Kotlin", "Jetpack Compose", "CameraX", "MediaPipe", "Bluetooth SPP", "DataStore", "Apache POI"],
+        link:  "https://github.com/AaradhyaDT/Alpha-SuperApp",
+      },
     ],
 
     // ── Apps ─────────────────────────────────────────────────
-    // Add your live apps / tools / demos here
     apps: [
       {
-        icon:  "🤖",
-        title: "Your App Name",
-        desc:  "A short description of what this app does. Replace this placeholder with your actual app details.",
+        icon:  "⚡",
+        title: "Alpha — Android Super-App",
+        desc:  "Personal Android super-app built with Kotlin & Jetpack Compose (Material3). Modules: SBR gesture control via MediaPipe + Bluetooth SPP, a three-mode calculator (STD/PROG/LOGIC with base conversion & logic gates), Settings with DataStore Preferences, and a Budget Tracker with eSewa Gmail parsing & Google Drive backup.",
+        tags:  ["Kotlin", "Jetpack Compose", "Material3", "MediaPipe", "Bluetooth", "CameraX", "DataStore"],
         links: [
-          { label: "Launch App", href: "#", type: "primary" },
-          { label: "Source",     href: "#", type: "secondary" },
+          { label: "GitHub", href: "https://github.com/AaradhyaDT/Alpha-SuperApp", type: "secondary" },
         ],
       },
-      // Add more apps here following the same pattern:
-      // {
-      //   icon:  "⚡",
-      //   title: "Another App",
-      //   desc:  "Description...",
-      //   links: [
-      //     { label: "Live Demo", href: "https://...", type: "primary" },
-      //   ],
-      // },
     ],
 
     // ── Experience ───────────────────────────────────────────
@@ -609,6 +633,19 @@
   renderAbout();
   renderContact();
   renderFooter();
+
+  // ── Theme toggle ────────────────────────────────────────
+  (function() {
+    const htmlEl = document.documentElement;
+    const btn = document.getElementById('themeToggle');
+    const saved = localStorage.getItem('adt-theme') || 'dark';
+    htmlEl.setAttribute('data-theme', saved);
+    btn.addEventListener('click', () => {
+      const next = htmlEl.getAttribute('data-theme') === 'dark' ? 'light' : 'dark';
+      htmlEl.setAttribute('data-theme', next);
+      localStorage.setItem('adt-theme', next);
+    });
+  })();
 
   // ── Cursor ──────────────────────────────────────────────────
   const dot  = document.getElementById('cursorDot');
