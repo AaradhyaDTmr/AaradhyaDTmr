@@ -169,7 +169,7 @@
     .skill-dots { display: flex; gap: 5px; align-items: center; flex-shrink: 0; }
     .skill-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--accent); transition: background 0.3s; }
     .skill-dot.filled { background: var(--accent); }
-    .skill-legend { display: flex; gap: 1.5rem; margin-bottom: 2.5rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
+    .skill-legend { display: flex; gap: 1.5rem; margin-bottom: 1.25rem; }
     .skill-legend-item { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
     .skill-legend-dot { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--accent); }
     .skill-legend-dot.filled { background: var(--accent); }
@@ -374,6 +374,7 @@
       <div class="section-num">04 / Skills</div>
       <h2 class="section-title">Technical <em>Expertise</em></h2>
     </div>
+    <div class="skill-legend reveal" id="skills-legend"></div>
     <div class="skills-layout reveal" id="skills-layout"></div>
   </section>
 
@@ -692,12 +693,12 @@
 
   function renderSkills() {
     const layout = document.getElementById('skills-layout');
-    const legendHtml = `<div class="skill-legend">
+    const legendEl = document.getElementById('skills-legend');
+    legendEl.innerHTML = `
       <div class="skill-legend-item"><div class="skill-legend-dot filled"></div><div class="skill-legend-dot filled"></div><div class="skill-legend-dot filled"></div> Proficient</div>
       <div class="skill-legend-item"><div class="skill-legend-dot filled"></div><div class="skill-legend-dot filled"></div><div class="skill-legend-dot"></div> Familiar</div>
-      <div class="skill-legend-item"><div class="skill-legend-dot filled"></div><div class="skill-legend-dot"></div><div class="skill-legend-dot"></div> Learning</div>
-    </div>`;
-    DATA.skillGroups.forEach((g, i) => {
+      <div class="skill-legend-item"><div class="skill-legend-dot filled"></div><div class="skill-legend-dot"></div><div class="skill-legend-dot"></div> Learning</div>`;
+    DATA.skillGroups.forEach(g => {
       const rows = g.skills.map(s => {
         const dots = [1,2,3].map(n => `<div class="skill-dot${s.level >= n ? ' filled' : ''}"></div>`).join('');
         return `<div class="skill-row"><span class="skill-name">${s.name}</span><div class="skill-dots">${dots}</div></div>`;
@@ -705,7 +706,6 @@
       layout.innerHTML += `
         <div class="skill-group">
           <div class="skill-group-title">${g.title}</div>
-          ${i === 0 ? legendHtml : ''}
           <div class="skill-list">${rows}</div>
         </div>`;
     });
