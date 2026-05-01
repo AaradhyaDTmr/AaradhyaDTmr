@@ -60,7 +60,6 @@
   <!-- Font preload (primary display font — reduces FOUT) -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link rel="preload" as="style" href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@300;400;500&display=swap" />
   <link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=DM+Mono:wght@300;400;500&family=Instrument+Sans:wght@300;400;500&display=swap" rel="stylesheet" />
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -79,7 +78,7 @@
       --accent-a40: rgba(212,168,90,0.40);
       --accent-a45: rgba(212,168,90,0.45);
       --accent-a80: rgba(212,168,90,0.80);
-      --white:    #f7f3eb;
+      --heading:    #f7f3eb;
       --serif:    'Cormorant Garamond', Georgia, serif;
       --mono:     'DM Mono', monospace;
       --sans:     'Instrument Sans', sans-serif;
@@ -100,7 +99,7 @@
       --accent-a40: rgba(138,88,0,0.40);
       --accent-a45: rgba(138,88,0,0.45);
       --accent-a80: rgba(138,88,0,0.80);
-      --white:    #110d08;
+      --heading:    #110d08;
       --nav-scrolled-bg: rgba(250,248,245,0.94);
     }
 
@@ -137,7 +136,7 @@
     .icon-moon { display: block; }
     html[data-theme="light"] .icon-sun { display: block; }
     html[data-theme="light"] .icon-moon { display: none; }
-    .nav-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--white); text-decoration: none; }
+    .nav-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--heading); text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; justify-content: center; }
     .nav-links a { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; padding: 0.5rem 0.25rem; }
@@ -153,7 +152,7 @@
     .hero-left { position: relative; z-index: 1; }
     .hero-tag { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.75rem; opacity: 0; animation: fadeUp 0.8s 0.2s forwards; }
     .hero-tag::before { content: ''; display: block; width: 32px; height: 1px; background: var(--accent); }
-    .hero-name { font-family: var(--serif); font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.05; color: var(--white); letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.9s 0.35s forwards; }
+    .hero-name { font-family: var(--serif); font-size: clamp(3rem, 5vw, 5.5rem); font-weight: 300; line-height: 1.05; color: var(--heading); letter-spacing: -0.01em; opacity: 0; animation: fadeUp 0.9s 0.35s forwards; }
     .hero-name em { font-style: italic; color: var(--accent); }
     .hero-desc { margin-top: 1.8rem; font-size: 0.97rem; line-height: 1.85; color: var(--text); max-width: 480px; opacity: 0; animation: fadeUp 0.9s 0.5s forwards; }
     .hero-actions { margin-top: 2.5rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s 0.65s forwards; }
@@ -173,13 +172,13 @@
     .status-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
     .status-item:last-child { border-bottom: none; padding-bottom: 0; }
     .status-item-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .status-item-value { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--white); text-align: right; max-width: 200px; }
+    .status-item-value { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--heading); text-align: right; max-width: 200px; }
 
     /* Sections */
     section { padding: 7rem 3rem; position: relative; }
     .section-header { margin-bottom: 4rem; }
     .section-num { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.2em; text-transform: uppercase; color: var(--accent); margin-bottom: 0.75rem; }
-    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--white); line-height: 1.1; }
+    .section-title { font-family: var(--serif); font-size: clamp(2rem, 3.5vw, 3.2rem); font-weight: 300; color: var(--heading); line-height: 1.1; }
     .section-title em { font-style: italic; color: var(--accent); }
     .divider { width: 100%; height: 1px; background: linear-gradient(90deg, transparent, var(--line), transparent); margin: 0 3rem; width: calc(100% - 6rem); }
 
@@ -192,7 +191,7 @@
     .project-card:hover { background: var(--bg3); }
     .project-card:hover::after { transform: scaleX(1); }
     .project-index { font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.15em; color: var(--accent); margin-bottom: 1.5rem; opacity: 0.7; }
-    .project-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--white); margin-bottom: 0.75rem; line-height: 1.2; }
+    .project-title { font-family: var(--serif); font-size: 1.5rem; font-weight: 400; color: var(--heading); margin-bottom: 0.75rem; line-height: 1.2; }
     .project-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text); margin-bottom: 1.5rem; }
     .project-tags { display: flex; flex-wrap: wrap; gap: 0.4rem; }
     .project-link { display: inline-flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent2); text-decoration: none; margin-top: 1rem; transition: gap 0.2s; padding: 0.5rem 0; }
@@ -207,7 +206,7 @@
     .app-card:hover { background: var(--bg); }
     .app-card:hover::before { transform: scaleX(1); }
     .app-icon { font-size: 1.8rem; margin-bottom: 0.25rem; }
-    .app-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--white); line-height: 1.2; }
+    .app-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--heading); line-height: 1.2; }
     .app-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text); flex: 1; }
     .app-links { display: flex; gap: 1rem; flex-wrap: wrap; margin-top: 0.5rem; }
     .app-link { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; display: inline-flex; align-items: center; gap: 0.35rem; transition: gap 0.2s; }
@@ -222,7 +221,7 @@
     .exp-item { display: grid; grid-template-columns: 1fr 3fr 1fr; align-items: start; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--line); }
     .exp-item:first-child { border-top: 1px solid var(--line); }
     .exp-org { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
-    .exp-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--white); margin-bottom: 0.5rem; }
+    .exp-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--heading); margin-bottom: 0.5rem; }
     .exp-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text); }
     .exp-year { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--accent); text-align: right; padding-top: 0.2rem; }
 
@@ -234,7 +233,7 @@
     .skill-group-title { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--accent); margin-bottom: 1.5rem; }
     .skill-list { display: flex; flex-direction: column; gap: 0.75rem; }
     .skill-row { display: flex; align-items: center; justify-content: space-between; gap: 1rem; }
-    .skill-name { font-family: var(--serif); font-size: 1.05rem; color: var(--white); }
+    .skill-name { font-family: var(--serif); font-size: 1.05rem; color: var(--heading); }
     .skill-dots { display: flex; gap: 5px; align-items: center; flex-shrink: 0; }
     .skill-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--accent); transition: background 0.3s; }
     .skill-dot.filled { background: var(--accent); }
@@ -247,25 +246,25 @@
     #about { background: var(--bg); }
     .about-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; align-items: center; }
     .about-text p { font-size: 0.95rem; line-height: 1.9; color: var(--text); margin-bottom: 1.2rem; }
-    .about-text p strong { color: var(--white); font-weight: 500; }
+    .about-text p strong { color: var(--heading); font-weight: 500; }
     .about-stats { display: flex; flex-direction: column; gap: 0; }
     .stat-row { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--line); }
     .stat-row:first-child { border-top: 1px solid var(--line); }
-    .stat-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--white); }
+    .stat-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--heading); }
     .stat-num span { font-size: 1.2rem; color: var(--accent); }
     .stat-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: right; }
 
     /* Contact */
     #contact { background: var(--bg2); }
     .contact-layout { display: grid; grid-template-columns: 1fr 1fr; gap: 6rem; }
-    .contact-tagline { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: var(--white); line-height: 1.3; margin-bottom: 1.5rem; }
+    .contact-tagline { font-family: var(--serif); font-size: clamp(1.8rem, 3vw, 2.8rem); font-weight: 300; color: var(--heading); line-height: 1.3; margin-bottom: 1.5rem; }
     .contact-tagline em { font-style: italic; color: var(--accent); }
     .contact-note { font-size: 0.93rem; line-height: 1.8; color: var(--text); }
     .contact-links { display: flex; flex-direction: column; gap: 0; }
     .contact-link { display: flex; justify-content: space-between; align-items: center; padding: 1.5rem 0; border-bottom: 1px solid var(--line); text-decoration: none; transition: padding-left 0.3s; }
     .contact-link:first-child { border-top: 1px solid var(--line); }
     .contact-link:hover { padding-left: 0.5rem; }
-    .contact-link-label { font-family: var(--serif); font-size: 1.2rem; color: var(--white); }
+    .contact-link-label { font-family: var(--serif); font-size: 1.2rem; color: var(--heading); }
     .contact-link-detail { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); }
     .contact-link:hover .contact-link-detail { color: var(--accent); }
     .contact-link-arrow { color: var(--muted); font-size: 1rem; transition: transform 0.2s, color 0.2s; }
@@ -385,8 +384,36 @@
       .section-title { font-size: clamp(1.8rem, 7vw, 2.4rem); }
       .contact-tagline { font-size: clamp(1.5rem, 6vw, 2rem); }
     }
+    /* ── prefers-reduced-motion ─────────────────────────────── */
+    @media (prefers-reduced-motion: reduce) {
+      *, *::before, *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        transition-duration: 0.01ms !important;
+      }
+      .hero-tag, .hero-name, .hero-desc, .hero-actions, .hero-right {
+        opacity: 1 !important;
+        transform: none !important;
+        animation: none !important;
+      }
+      .reveal { opacity: 1; transform: none; transition: none; }
+      html { scroll-behavior: auto; }
+    }
+
+    /* ── Focus-visible styles (keyboard navigation) ─────────── */
+    :focus-visible {
+      outline: 2px solid var(--accent);
+      outline-offset: 3px;
+      border-radius: 2px;
+    }
+    /* Remove default focus ring where :focus-visible is shown */
+    :focus:not(:focus-visible) { outline: none; }
+
+    /* Ensure keyboard users still see a cursor (only hide for pointer:fine) */
+    @media (pointer: coarse) {
+      body { cursor: auto; }
+    }
   </style>
-  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -403,7 +430,7 @@
     <a href="#hero" class="nav-logo" id="nav-logo">ADT<span>.</span></a>
     <ul class="nav-links" id="nav-links"></ul>
     <div class="nav-right">
-      <a href="#contact" class="nav-cta">Connect</a>
+      <a href="#contact" class="nav-cta" aria-label="Connect with Aaradhya">Connect</a>
       <button class="theme-toggle" id="themeToggle" aria-label="Toggle theme">
         <svg class="icon-moon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M21 12.79A9 9 0 1 1 11.21 3 7 7 0 0 0 21 12.79z"/></svg>
         <svg class="icon-sun" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
@@ -431,9 +458,9 @@
       <h1 class="hero-name" id="hero-name"></h1>
       <p class="hero-desc" id="hero-desc"></p>
       <div class="hero-actions">
-        <a href="#projects" class="btn-primary">View Work</a>
-        <a href="#contact" class="btn-ghost">Get in touch →</a>
-        <a href="AARADHYA_DEV_TAMRAKAR_CV.pdf" class="btn-ghost" download>Download CV ↓</a>
+        <a href="#projects" class="btn-primary" aria-label="View Aaradhya's work">View Work</a>
+        <a href="#contact" class="btn-ghost" aria-label="Get in touch with Aaradhya">Get in touch →</a>
+        <a href="AARADHYA_DEV_TAMRAKAR_CV.pdf" class="btn-ghost" download aria-label="Download Aaradhya's CV">Download CV ↓</a>
       </div>
     </div>
     <div class="hero-right">
@@ -490,9 +517,7 @@
   <section id="about">
     <div class="about-layout">
       <div class="about-left-col">
-        <div class="about-photo-wrap" id="about-photo-wrap">
-          <!-- Photo: set DATA.profilePhoto to your image URL/path, or leave null for placeholder -->
-        </div>
+        <div class="about-photo-wrap" id="about-photo-wrap"></div>
         <div class="about-text reveal" id="about-text"></div>
       </div>
       <div class="about-stats reveal" id="about-stats"></div>
@@ -540,7 +565,8 @@
     <div class="footer-socials" id="footer-socials"></div>
   </footer>
 
-  <script>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js" defer></script>
+  <script defer>
   /* ============================================================
      ✏️  PORTFOLIO DATA — Edit only this section to update content
      ============================================================ */
@@ -609,7 +635,7 @@
       {
         icon:  "⚡",
         title: "Alpha — Android Super-App",
-        desc:  "Personal Android super-app built with Kotlin & Jetpack Compose (Material3). Modules: SBR gesture control via MediaPipe + Bluetooth SPP, a three-mode calculator (STD/PROG/LOGIC with base conversion & logic gates), Settings with DataStore Preferences, and a Budget Tracker with eSewa Gmail parsing & Google Drive backup.",
+        desc:  "A personal productivity super-app designed around real daily workflows. The Budget Tracker auto-parses eSewa Gmail receipts and backs up to Google Drive — no manual entry. The SBR remote turns your phone into a gesture controller over Bluetooth. The multi-mode calculator handles base conversion and logic gates that a stock calculator never would. Built for one user: me.",
         tags:  ["Kotlin", "Jetpack Compose", "Material3", "MediaPipe", "Bluetooth", "CameraX", "DataStore"],
         links: [
           { label: "GitHub", href: "https://github.com/AaradhyaDT/Alpha-SuperApp", type: "secondary" },
@@ -857,7 +883,7 @@
     // Profile photo
     const photoWrap = document.getElementById('about-photo-wrap');
     if (DATA.profilePhoto) {
-      photoWrap.innerHTML = `<img src="${DATA.profilePhoto}" alt="Aaradhya Dev Tamrakar" class="about-photo" />`;
+      photoWrap.innerHTML = `<img src="${DATA.profilePhoto}" alt="Aaradhya Dev Tamrakar" class="about-photo" loading="lazy" />`;
     } else {
       photoWrap.innerHTML = `<div class="about-photo-placeholder">
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1"><circle cx="12" cy="8" r="4"/><path d="M4 20c0-4 3.6-7 8-7s8 3 8 7"/></svg>
@@ -1010,6 +1036,7 @@
   const EMAILJS_PUBLIC_KEY  = 'qI23fOnGCY651Rdcg';
   const FORMSPREE_ID        = 'mrejgjyd';
 
+  window.addEventListener('load', function() {
   emailjs.init(EMAILJS_PUBLIC_KEY);
 
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
@@ -1073,6 +1100,7 @@
     btn.disabled = false;
     btn.textContent = 'Send Message →';
   });
+  }); // end window.load
   </script>
 </body>
 </html>
