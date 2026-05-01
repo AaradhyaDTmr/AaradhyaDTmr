@@ -155,9 +155,9 @@
     .nav-logo { font-family: var(--serif); font-size: 1.1rem; font-weight: 400; letter-spacing: 0.02em; color: var(--heading); text-decoration: none; }
     .nav-logo span { color: var(--accent); }
     .nav-links { display: flex; gap: 2.5rem; list-style: none; justify-content: center; }
-    .nav-links a { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; padding: 0.5rem 0.25rem; }
+    .nav-links a { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); font-weight: 500; text-decoration: none; transition: color 0.2s; padding: 0.5rem 0.25rem; }
     .nav-links a:hover { color: var(--accent); }
-    .nav-cta { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-a40); padding: 0.5rem 1.2rem; border-radius: 2px; transition: background 0.2s, color 0.2s; }
+    .nav-cta { font-family: var(--mono); font-size: 0.7rem; letter-spacing: 0.1em; text-transform: uppercase; font-weight: 500; color: var(--accent); text-decoration: none; border: 1px solid var(--accent-a80); padding: 0.5rem 1.2rem; border-radius: 2px; transition: background 0.2s, color 0.2s; }
     .nav-cta:hover { background: var(--accent); color: var(--bg); }
     .nav-right { display: flex; align-items: center; gap: 1rem; justify-content: flex-end; }
 
@@ -172,22 +172,22 @@
     .hero-name em { font-style: italic; color: var(--accent); }
     .hero-desc { margin-top: 1.8rem; font-size: 0.97rem; line-height: 1.85; color: var(--text); max-width: 480px; opacity: 0; animation: fadeUp 0.9s 0.5s forwards; }
     .hero-actions { margin-top: 2.5rem; display: flex; gap: 0.75rem; align-items: center; flex-wrap: wrap; opacity: 0; animation: fadeUp 0.9s 0.65s forwards; }
-    .btn-primary { background: transparent; color: var(--accent); font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.6rem; border-radius: 2px; text-decoration: none; border: 1px solid var(--accent); cursor: none; transition: background 0.22s, color 0.22s, transform 0.18s; display: inline-flex; align-items: center; gap: 0.5rem; }
+    .btn-primary { background: transparent; color: var(--accent); font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; padding: 0.75rem 1.6rem; border-radius: 2px; text-decoration: none; border: 1px solid var(--accent); cursor: none; transition: background 0.22s, color 0.22s, transform 0.18s; display: inline-flex; align-items: center; gap: 0.5rem; }
     .btn-primary::after { content: '↗'; font-size: 0.8em; transition: transform 0.18s; }
     .btn-primary:hover { background: var(--accent); color: var(--bg); transform: translateY(-1px); }
     .btn-primary:hover::after { transform: translate(2px, -2px); }
-    .btn-ghost { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; transition: color 0.2s, gap 0.2s; padding: 0.75rem 1rem; border: 1px solid var(--line); border-radius: 2px; }
-    .btn-ghost:hover { color: var(--text); border-color: var(--muted); gap: 0.6rem; }
+    .btn-ghost { font-family: var(--mono); font-size: 0.68rem; font-weight: 500; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); text-decoration: none; display: inline-flex; align-items: center; gap: 0.45rem; transition: color 0.2s, gap 0.2s, border-color 0.2s; padding: 0.75rem 1rem; border: 1px solid var(--muted); border-radius: 2px; }
+    .btn-ghost:hover { color: var(--heading); border-color: var(--text); gap: 0.6rem; }
     .hero-right { position: relative; z-index: 1; opacity: 0; animation: fadeIn 1.2s 0.7s forwards; }
     .status-card { border: 1px solid var(--line); background: var(--bg2); border-radius: 4px; padding: 2rem; position: relative; }
     .status-card::before { content: ''; position: absolute; top: -1px; left: 2rem; right: 2rem; height: 1px; background: linear-gradient(90deg, transparent, var(--accent), transparent); }
-    .status-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
+    .status-label { font-family: var(--mono); font-size: 0.62rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); margin-bottom: 1.5rem; display: flex; align-items: center; gap: 0.5rem; }
     .status-dot { width: 6px; height: 6px; background: var(--accent2); border-radius: 50%; box-shadow: 0 0 6px var(--accent2); animation: pulse 2s infinite; }
     @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.4; } }
     .status-items { display: flex; flex-direction: column; gap: 1rem; }
     .status-item { display: flex; justify-content: space-between; align-items: flex-start; gap: 1rem; padding-bottom: 1rem; border-bottom: 1px solid var(--line); }
     .status-item:last-child { border-bottom: none; padding-bottom: 0; }
-    .status-item-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .status-item-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
     .status-item-value { font-family: var(--serif); font-size: 1rem; font-weight: 400; color: var(--heading); text-align: right; max-width: 200px; }
 
     /* Sections */
@@ -236,7 +236,7 @@
     .exp-list { display: flex; flex-direction: column; }
     .exp-item { display: grid; grid-template-columns: 1fr 3fr 1fr; align-items: start; gap: 3rem; padding: 2.5rem 0; border-bottom: 1px solid var(--line); }
     .exp-item:first-child { border-top: 1px solid var(--line); }
-    .exp-org { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .exp-org { font-family: var(--mono); font-size: 0.68rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
     .exp-title { font-family: var(--serif); font-size: 1.4rem; font-weight: 400; color: var(--heading); margin-bottom: 0.5rem; }
     .exp-desc { font-size: 0.92rem; line-height: 1.75; color: var(--text); }
     .exp-year { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; color: var(--accent); text-align: right; padding-top: 0.2rem; }
@@ -254,7 +254,7 @@
     .skill-dot { width: 8px; height: 8px; border-radius: 50%; border: 1px solid var(--accent); transition: background 0.3s; }
     .skill-dot.filled { background: var(--accent); }
     .skill-legend { display: flex; gap: 1.5rem; margin-bottom: 1.25rem; }
-    .skill-legend-item { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); }
+    .skill-legend-item { display: flex; align-items: center; gap: 0.4rem; font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); }
     .skill-legend-dot { width: 7px; height: 7px; border-radius: 50%; border: 1px solid var(--accent); }
     .skill-legend-dot.filled { background: var(--accent); }
 
@@ -268,7 +268,7 @@
     .stat-row:first-child { border-top: 1px solid var(--line); }
     .stat-num { font-family: var(--serif); font-size: 2.5rem; font-weight: 300; color: var(--heading); }
     .stat-num span { font-size: 1.2rem; color: var(--accent); }
-    .stat-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--muted); text-align: right; }
+    .stat-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.1em; text-transform: uppercase; color: var(--text); text-align: right; }
 
     /* Contact */
     #contact { background: var(--bg2); }
@@ -281,7 +281,7 @@
     .contact-link:first-child { border-top: 1px solid var(--line); }
     .contact-link:hover { padding-left: 0.5rem; }
     .contact-link-label { font-family: var(--serif); font-size: 1.2rem; color: var(--heading); }
-    .contact-link-detail { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--muted); }
+    .contact-link-detail { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.08em; color: var(--text); }
     .contact-link:hover .contact-link-detail { color: var(--accent); }
     .contact-link-arrow { color: var(--muted); font-size: 1rem; transition: transform 0.2s, color 0.2s; }
     .contact-link:hover .contact-link-arrow { transform: translate(4px, -4px); color: var(--accent); }
@@ -319,7 +319,7 @@
     .contact-form { display: flex; flex-direction: column; gap: 1rem; }
     .form-row { display: grid; grid-template-columns: 1fr 1fr; gap: 1rem; }
     .form-field { display: flex; flex-direction: column; gap: 0.4rem; }
-    .form-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--muted); }
+    .form-label { font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.12em; text-transform: uppercase; color: var(--text); }
     .form-input, .form-textarea { background: var(--bg); border: 1px solid var(--line); border-radius: 2px; padding: 0.75rem 1rem; color: var(--text); font-family: var(--sans); font-size: 0.92rem; outline: none; transition: border-color 0.2s; width: 100%; }
     .form-input:focus, .form-textarea:focus { border-color: var(--accent); }
     .form-textarea { resize: vertical; min-height: 120px; }
@@ -361,7 +361,7 @@
     /* Mobile drawer */
     .nav-drawer { display: none; position: fixed; top: 0; left: 0; right: 0; bottom: 0; background: var(--bg); z-index: 99; flex-direction: column; justify-content: center; align-items: center; gap: 2.5rem; opacity: 0; pointer-events: none; transition: opacity 0.3s ease; }
     .nav-drawer.open { opacity: 1; pointer-events: all; }
-    .nav-drawer a { font-family: var(--mono); font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--muted); text-decoration: none; padding: 1rem 2rem; transition: color 0.2s; }
+    .nav-drawer a { font-family: var(--mono); font-size: 1rem; letter-spacing: 0.15em; text-transform: uppercase; color: var(--text); text-decoration: none; padding: 1rem 2rem; transition: color 0.2s; }
     .nav-drawer a:hover { color: var(--accent); }
 
     /* Tablet — fix contact/about gap at mid-width */
