@@ -306,6 +306,7 @@
       .contact-tagline { font-size: clamp(1.5rem, 6vw, 2rem); }
     }
   </style>
+  <script src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"></script>
 </head>
 <body>
 
@@ -891,10 +892,19 @@
   }, { threshold: 0.12 });
   document.querySelectorAll('.reveal').forEach(el => revealObs.observe(el));
 
-  // ── Contact form → Formspree ────────────────────────────────
-  // To activate: go to formspree.io, create a form → aaradhyadevtmr@gmail.com,
-  // then replace YOUR_FORMSPREE_ID with your actual form ID (e.g. xpwzgkla)
-  const FORMSPREE_ID = 'YOUR_FORMSPREE_ID';
+  // ── Contact form — EmailJS → Formspree → mailto fallback ────
+  // Find & replace these 4 placeholders with your actual keys:
+  //   ADT_EMAILJS_SERVICE_ID   → your EmailJS Service ID   (e.g. service_xxxxxxx)
+  //   ADT_EMAILJS_TEMPLATE_ID  → your EmailJS Template ID  (e.g. template_xxxxxxx)
+  //   ADT_EMAILJS_PUBLIC_KEY   → your EmailJS Public Key   (e.g. aBcDeFgHiJkLmNoP)
+  //   ADT_FORMSPREE_ID         → your Formspree form ID    (e.g. xpwzgkla)
+
+  const EMAILJS_SERVICE_ID  = 'service_ndgwufl';
+  const EMAILJS_TEMPLATE_ID = 'template_537qrr1';
+  const EMAILJS_PUBLIC_KEY  = 'qI23fOnGCY651Rdcg';
+  const FORMSPREE_ID        = 'mrejgjyd';
+
+  emailjs.init(EMAILJS_PUBLIC_KEY);
 
   document.getElementById('contactForm').addEventListener('submit', async function(e) {
     e.preventDefault();
@@ -910,15 +920,26 @@
     btn.textContent = 'Sending...';
     status.textContent = '';
 
-    if (FORMSPREE_ID === 'YOUR_FORMSPREE_ID') {
-      const mailto = `mailto:aaradhyadevtmr@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent('From: ' + formData.name + ' (' + formData.email + ')\n\n' + formData.message)}`;
-      window.location.href = mailto;
-      status.textContent = 'Opening your mail client...';
+    // ── 1. Try EmailJS (primary — includes auto-reply) ───────
+    try {
+      await emailjs.send(EMAILJS_SERVICE_ID, EMAILJS_TEMPLATE_ID, {
+        name:    formData.name,
+        email:   formData.email,
+        subject: formData.subject,
+        message: formData.message,
+        time:    new Date().toLocaleString(),
+      });
+      status.textContent = '✓ Message sent. I\'ll respond within 48 hours.';
+      status.style.color = 'var(--accent2)';
+      this.reset();
       btn.disabled = false;
       btn.textContent = 'Send Message →';
       return;
+    } catch (err) {
+      console.warn('EmailJS failed, trying Formspree...', err);
     }
 
+    // ── 2. Fallback: Formspree (no auto-reply) ───────────────
     try {
       const res = await fetch('https://formspree.io/f/' + FORMSPREE_ID, {
         method: 'POST',
@@ -929,16 +950,23 @@
         status.textContent = '✓ Message sent. I\'ll respond within 48 hours.';
         status.style.color = 'var(--accent2)';
         this.reset();
-      } else {
-        throw new Error('failed');
+        btn.disabled = false;
+        btn.textContent = 'Send Message →';
+        return;
       }
-    } catch {
-      status.textContent = 'Something went wrong — email me at aaradhyadevtmr@gmail.com';
-      status.style.color = 'var(--accent)';
+      throw new Error('Formspree failed');
+    } catch (err) {
+      console.warn('Formspree failed, falling back to mailto...', err);
     }
+
+    // ── 3. Last resort: mailto ───────────────────────────────
+    const mailto = `mailto:aaradhyadevtmr@gmail.com?subject=${encodeURIComponent(formData.subject)}&body=${encodeURIComponent('From: ' + formData.name + ' (' + formData.email + ')\n\n' + formData.message)}`;
+    window.location.href = mailto;
+    status.textContent = 'Opening your mail client as fallback...';
+    status.style.color = 'var(--accent)';
     btn.disabled = false;
     btn.textContent = 'Send Message →';
   });
   </script>
 </body>
-</html>
+</html>F
