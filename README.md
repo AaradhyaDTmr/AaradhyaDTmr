@@ -104,4 +104,12 @@ Deployed automatically via GitHub Pages. Changes pushed to `main` go live at **[
 
 ## License
 
-This project is licensed under the MIT License — see the [LICENSE](LICENSE) file for details.
+This project is licensed under an **All Rights Reserved** proprietary license. 
+
+**All code, design, and content are the exclusive property of Aaradhya Dev Tamrakar.** 
+
+No part of this website may be copied, modified, distributed, or used without **explicit written permission**. 
+
+To request permission to use or adapt any part of this portfolio, please contact: **aaradhyadevtmr@gmail.com**
+
+See the [LICENSE](LICENSE) file for full details.
